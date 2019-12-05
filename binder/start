@@ -4,7 +4,7 @@ set -eux
 export MONGODB_VERSION=3.6.15
 export MONGODB_PATH=${HOME}/mongodb-$MONGODB_VERSION
 
-${MONGODB_PATH}/bin/mongod --dbpath ${MONGODB_PATH}/data/db
+${MONGODB_PATH}/bin/mongod --dbpath ${MONGODB_PATH}/data/db &
 
 exec "$@"
 
