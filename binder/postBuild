@@ -1,7 +1,8 @@
 MONGODB_VERSION=3.6.15
 MONGODB_PATH=mongodb-$MONGODB_VERSION
 
-wget http://downloads.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1804-${MONGODB_VERSION}.tgz  -q 
+#https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.6.15.tgz
+wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-${MONGODB_VERSION}.tgz
 
 tar -xvf mongodb-linux-x86_64-ubuntu1804-4.0.11.tgz >/dev/null 
 rm mongodb-linux-x86_64-ubuntu1804-4.0.11.tgz
