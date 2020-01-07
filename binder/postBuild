@@ -30,3 +30,6 @@ ${MONGODB_PATH}/bin/mongoimport --db $DB_NAME --collection $COLLECTION_NAME --fi
 #${MONGODB_PATH}/bin/mongorestore --drop --db $DBNAME $DATA_FILE
 echo "Tidy up mongo seed data..."
 rm init_db/mongo/seed.json
+
+#Cleanly shutdown the mongo server
+${MONGODB_PATH}/bin/mongod --shutdown --dbpath $MONGO_DBPATH
