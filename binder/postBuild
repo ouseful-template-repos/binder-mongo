@@ -2,6 +2,8 @@ MONGODB_VERSION=3.6.15
 MONGODB_PATH=${CONDA_DIR}/mongodb-$MONGODB_VERSION
 MONGODB_BASE=mongodb-linux-x86_64
 
+MONGO_DBPATH=${MONGODB_PATH}/data/db
+
 echo "Download mongo db installer..."
 #https://fastdl.mongodb.org/linux/${MONGODB_BASE}-3.6.15.tgz
 wget -q https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-${MONGODB_VERSION}.tgz
@@ -11,14 +13,20 @@ tar -xvf ${MONGODB_BASE}-${MONGODB_VERSION}.tgz >/dev/null
 rm ${MONGODB_BASE}-${MONGODB_VERSION}.tgz
 mv ${MONGODB_BASE}-${MONGODB_VERSION} ${MONGODB_PATH}
 
-mkdir ${MONGODB_PATH}/data/db -p
+mkdir -p $MONGO_DBPATH
 
 #Start the db and seed it
 echo "Start mongo db so we can see it..."
-${MONGODB_PATH}/bin/mongod --dbpath ${MONGODB_PATH}/data/db &
+${MONGODB_PATH}/bin/mongod --dbpath $MONGO_DBPATH &
 
 echo "Seed mongo db..."
-${MONGODB_PATH}/bin/mongoimport --db test_database --collection stuff --file init_db/mongo/seed.json
+DB_NAME=test_database
+COLLECTION_NAME=stuff
+DATA_FILE=init_db/mongo/seed.json
 
+${MONGODB_PATH}/bin/mongoimport --db $DB_NAME --collection $COLLECTION_NAME --file $DATA_FILE
+
+#We can also use mongorestore, eg with commands of the form:
+#${MONGODB_PATH}/bin/mongorestore --drop --db $DBNAME $DATA_FILE
 echo "Tidy up mongo seed data..."
 rm init_db/mongo/seed.json
