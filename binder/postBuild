@@ -1,11 +1,11 @@
-MONGODB_VERSION=3.6.15
+MONGODB_VERSION=$(cat .mongo_version)
 MONGODB_PATH=${CONDA_DIR}/mongodb-$MONGODB_VERSION
 MONGODB_BASE=mongodb-linux-x86_64
 
 MONGO_DBPATH=${MONGODB_PATH}/data/db
 
 echo "Download mongo db installer..."
-#https://fastdl.mongodb.org/linux/${MONGODB_BASE}-3.6.15.tgz
+#https://fastdl.mongodb.org/linux/${MONGODB_BASE}-4.0.16.tgz
 wget -q https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-${MONGODB_VERSION}.tgz
 
 echo "Install mongodb..."
