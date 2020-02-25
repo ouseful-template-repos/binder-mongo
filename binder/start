@@ -1,9 +1,7 @@
 #!/bin/bash
 set -eux
 
-source ./binder/version.txt
-
-export MONGODB_VERSION
+export MONGODB_VERSION=$(cat mongo_version)
 export MONGODB_PATH=${CONDA_DIR}/mongodb-$MONGODB_VERSION
 export PATH=${MONGODB_PATH}/bin:$PATH
 
