@@ -1,7 +1,9 @@
 #!/bin/bash
 set -eux
 
-export MONGODB_VERSION=3.6.15
+source version.txt
+
+export MONGODB_VERSION
 export MONGODB_PATH=${CONDA_DIR}/mongodb-$MONGODB_VERSION
 export PATH=${MONGODB_PATH}/bin:$PATH
 
