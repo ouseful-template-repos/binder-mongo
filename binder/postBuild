@@ -1,6 +1,6 @@
 # MONGODB_VERSION=4.0.16
 
-source version.txt
+source ./binder/version.txt
 
 MONGODB_PATH=${CONDA_DIR}/mongodb-$MONGODB_VERSION
 MONGODB_BASE=mongodb-linux-x86_64
