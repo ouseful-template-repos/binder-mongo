@@ -1,4 +1,4 @@
-MONGODB_VERSION=$(cat binder/mongo_version)
+MONGODB_VERSION=$(cat .mongo_version)
 MONGODB_PATH=${CONDA_DIR}/mongodb-$MONGODB_VERSION
 MONGODB_BASE=mongodb-linux-x86_64
 
